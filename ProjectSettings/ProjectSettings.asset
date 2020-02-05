@@ -539,7 +539,12 @@ PlayerSettings:
   webGLUseEmbeddedResources: 0
   webGLCompressionFormat: 1
   webGLLinkerTarget: 1
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    1: NATCAM_15;NATCAM_CORE;NATCAM_EXTENDED;NATCAM_PROFESSIONAL
+    4: NATCAM_15;INATCAM_C;NATCAM_CORE;NATCAM_EXTENDED;NATCAM_PROFESSIONAL
+    7: NATCAM_15;NATCAM_CORE;NATCAM_EXTENDED;NATCAM_PROFESSIONAL
+    13: NATCAM_15;NATCAM_CORE;NATCAM_EXTENDED;NATCAM_PROFESSIONAL
+    14: NATCAM_15;NATCAM_CORE;NATCAM_EXTENDED;NATCAM_PROFESSIONAL
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}
