@@ -132,8 +132,13 @@ namespace NatCamU.Core {
             }
             Implementation.StopRecording();
         }
+
+        internal static void CapturePhoto()
+        {
+            throw new NotImplementedException();
+        }
         #endregion
 
-        #endif
+#endif
     }
 }

@@ -3,28 +3,31 @@
 *   Copyright (c) 2016 Yusuf Olokoba
 */
 
-namespace NatCamU.Examples {
+namespace NatCamU.Examples
+{
 
     using UnityEngine;
     using UnityEngine.UI;
     using Core;
     using Core.UI;
 
-    public class MiniCam : NatCamBehaviour {
-        
+    public class MiniCam : NatCamBehaviour
+    {
+
         [Header("UI")]
         public NatCamPreview panel;
         public NatCamFocuser focuser;
         public Text flashText;
         public Button switchCamButton, flashButton;
         public Image checkIco, flashIco;
-        private Texture2D photo;
+        public Texture2D photo;
 
 
         #region --Unity Messages--
 
         // Use this for initialization
-        public override void Start () {
+        public override void Start()
+        {
             // Start base
             base.Start();
             // Set the flash icon
@@ -32,24 +35,30 @@ namespace NatCamU.Examples {
         }
         #endregion
 
-        
+
         #region --NatCam and UI Callbacks--
 
-        public override void OnStart () {
+        public override void OnStart()
+        {
             // Display the preview
             panel.Apply(NatCam.Preview);
             // Start tracking focus gestures
             focuser.StartTracking();
         }
-        
-        public void CapturePhoto () {
+
+        public void CapturePhoto()
+        {
             // Divert control if we are checking the captured photo
-            if (!checkIco.gameObject.activeInHierarchy) NatCam.CapturePhoto(OnPhoto);
+            if (!checkIco.gameObject.activeInHierarchy)
+            {
+                NatCam.CapturePhoto(OnPhoto);
+            }
             // Check captured photo
             else OnViewPhoto();
         }
-        
-        void OnPhoto (Texture2D photo, Orientation orientation) {
+
+        void OnPhoto(Texture2D photo, Orientation orientation)
+        {
             // Cache the photo
             this.photo = photo;
             // Display the photo
@@ -62,30 +71,34 @@ namespace NatCamU.Examples {
             flashButton.gameObject.SetActive(false);
         }
         #endregion
-        
-        
+
+
         #region --UI Ops--
-        
-        public void SwitchCamera () {
+
+        public void SwitchCamera()
+        {
             //Switch camera
             base.SwitchCamera();
             //Set the flash icon
             SetFlashIcon();
         }
-        
-        public void ToggleFlashMode () {
+
+        public void ToggleFlashMode()
+        {
             //Set the active camera's flash mode
             NatCam.Camera.FlashMode = NatCam.Camera.IsFlashSupported ? NatCam.Camera.FlashMode == FlashMode.Auto ? FlashMode.On : NatCam.Camera.FlashMode == FlashMode.On ? FlashMode.Off : FlashMode.Auto : NatCam.Camera.FlashMode;
             //Set the flash icon
             SetFlashIcon();
         }
 
-        public void ToggleTorchMode () {
+        public void ToggleTorchMode()
+        {
             //Set the active camera's torch mode
             NatCam.Camera.TorchMode = NatCam.Camera.TorchMode == Switch.Off ? Switch.On : Switch.Off;
         }
-        
-        void OnViewPhoto () {
+
+        void OnViewPhoto()
+        {
             // Disable the check icon
             checkIco.gameObject.SetActive(false);
             // Display the preview
@@ -97,8 +110,9 @@ namespace NatCamU.Examples {
             // Free the photo texture
             Texture2D.Destroy(photo); photo = null;
         }
-        
-        void SetFlashIcon () {
+
+        void SetFlashIcon()
+        {
             //Null checking
             if (!NatCam.Camera) return;
             //Set the icon
