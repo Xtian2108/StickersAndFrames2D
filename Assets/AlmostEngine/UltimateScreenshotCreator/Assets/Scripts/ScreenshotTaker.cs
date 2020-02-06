@@ -32,14 +32,15 @@ namespace AlmostEngine.Screenshot
 			FIXED_GAMEVIEW}
 		;
 
-		public AudioClip m_ShotSound;
+        public ScreenshotManager m_ScreenshotManager;
+        public AudioClip m_ShotSound;
 
-		/// <summary>
-		/// The texture containing the last screenshot taken.
-		/// </summary>
-		public Texture2D m_ScreenshotTexture;
+        /// <summary>
+        /// The texture containing the last screenshot taken.
+        /// </summary>
+        public Texture2D m_ScreenshotTexture;
 
-		[Tooltip("In gameview resizing mode, the number of frames the screenshot taker waits before to take the screenshot after the gameview has been resized. " +
+        [Tooltip("In gameview resizing mode, the number of frames the screenshot taker waits before to take the screenshot after the gameview has been resized. " +
 		"The default value of 2 should be enough for most settings. " +
 		"Increase this number when some elements are not well updated, like GUI, or when you see some post effects artefacts. " +
 		"Post effects like temporal anti aliasing requier a value of at least 10.")]
@@ -399,10 +400,10 @@ namespace AlmostEngine.Screenshot
 			// Delegate call
 			onResolutionUpdateStartDelegate(resolution);
 
-			// Init texture
-			m_ScreenshotTexture = GetOrCreateTexture(resolution, colorFormat, captureMode == CaptureMode.FIXED_GAMEVIEW ? true : false);
+            // Init texture
+             m_ScreenshotTexture = GetOrCreateTexture(resolution, colorFormat, captureMode == CaptureMode.FIXED_GAMEVIEW ? true : false);
 
-			if (captureMode == CaptureMode.GAMEVIEW_RESIZING) {
+            if (captureMode == CaptureMode.GAMEVIEW_RESIZING) {
 
 				// Force screen size change
 				GameViewController.SetGameViewSize(m_ScreenshotTexture.width, m_ScreenshotTexture.height);

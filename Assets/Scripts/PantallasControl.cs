@@ -11,6 +11,7 @@ public class PantallasControl : MonoBehaviour {
     public GameObject volver;
     public GameObject ok;
     public PhotoBehaviour pB;
+    public ScreenshotHandler ssh;
 
     // Use this for initialization
     void Start () {
@@ -32,6 +33,12 @@ public class PantallasControl : MonoBehaviour {
         pantallas[1].GetComponent<DG.Tweening.DOTweenAnimation>().DOPlay();
     }
 
+    public void MoverPantalla3()
+    {
+        ssh.TakeHiResShot();
+        pantallas[2].GetComponent<DG.Tweening.DOTweenAnimation>().DOPlay();
+    }
+
     public void BotonTomarFoto()
     {
         volver.SetActive(true);
@@ -46,4 +53,5 @@ public class PantallasControl : MonoBehaviour {
         ok.SetActive(false);
         tomarFoto.SetActive(true);
     }
+
 }
