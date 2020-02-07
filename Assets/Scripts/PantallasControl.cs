@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG;
+using UnityEngine.SceneManagement;
 
 public class PantallasControl : MonoBehaviour {
 
@@ -12,15 +12,28 @@ public class PantallasControl : MonoBehaviour {
     public GameObject ok;
     public PhotoBehaviour pB;
     public ScreenshotHandler ssh;
-
+    public float timer;
     // Use this for initialization
     void Start () {
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (!Input.anyKey)
+        {
+            timer += Time.deltaTime;
+            if(timer >= 30f)
+            {
+                VolverInicio();
+                timer = 0;
+            }
+        }
+        else
+        {
+            timer = 0;
+        }	
 	}
 
     public void MoverPantalla1()
@@ -35,8 +48,24 @@ public class PantallasControl : MonoBehaviour {
 
     public void MoverPantalla3()
     {
-        ssh.TakeHiResShot();
+        ssh.TakeHiResShotFrame();
         pantallas[2].GetComponent<DG.Tweening.DOTweenAnimation>().DOPlay();
+    }
+
+    public void MoverPantalla4()
+    {
+        ssh.TakeHiResShotStickers();
+        pantallas[3].GetComponent<DG.Tweening.DOTweenAnimation>().DOPlay();
+    }
+
+    public void MoverPantalla5()
+    {
+        pantallas[4].GetComponent<DG.Tweening.DOTweenAnimation>().DOPlay();
+    }
+
+    public void VolverInicio()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 
     public void BotonTomarFoto()
