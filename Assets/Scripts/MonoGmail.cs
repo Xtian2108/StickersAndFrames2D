@@ -23,6 +23,21 @@ public class MonoGmail : MonoBehaviour
         instance = this;
     }
 
+    VirtualKeyboard vk = new VirtualKeyboard();
+
+    public void OpenKeyboard()
+    {
+        {
+            vk.ShowTouchKeyboard();
+        }
+    }
+
+    public void CloseKeyboard()
+    {
+        {
+            vk.HideTouchKeyboard();
+        }
+    }
 
     public void SendEmailR(){
         string usertoken = "personalizalove2020@gmail.com";
