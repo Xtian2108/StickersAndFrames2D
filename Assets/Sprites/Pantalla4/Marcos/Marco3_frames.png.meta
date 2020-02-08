@@ -3,6 +3,7 @@ guid: e8e9326f4adb730489149f1ae10b0503
 TextureImporter:
   fileIDToRecycleName:
     21300000: Marco3_frames_1
+    21300002: Marco3_frames_0
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -96,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Marco3_frames_1
+      name: Marco3_frames_0
       rect:
         serializedVersion: 2
-        x: 332
-        y: 729
-        width: 2803
-        height: 2016
+        x: 884
+        y: 639
+        width: 3562
+        height: 2227
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -110,7 +111,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb9e68ff1a0075446812389cc00a19a4
+      spriteID: 516f8d94c12964d418a6fa209fd41f5f
       vertices: []
       indices: 
       edges: []

@@ -7,15 +7,20 @@ public class PantallasControl : MonoBehaviour {
 
 
     public GameObject[] pantallas;
+    public Vector3[] posPantallas;
+    public bool listo;
     public GameObject tomarFoto;
     public GameObject volver;
     public GameObject ok;
     public PhotoBehaviour pB;
     public ScreenshotHandler ssh;
     public float timer;
+    public MonoGmail mg;
+
     // Use this for initialization
-    void Start () {
-		
+    void Start()
+    {
+       		
 	}
 
     // Update is called once per frame
@@ -65,7 +70,23 @@ public class PantallasControl : MonoBehaviour {
 
     public void VolverInicio()
     {
-        SceneManager.LoadScene("SampleScene");
+        StartCoroutine(LoadYourAsyncScene());
+    }
+
+    IEnumerator LoadYourAsyncScene()
+    {
+
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("SampleScene");
+
+        if(mg.listo == true)
+        {
+            while (!asyncLoad.isDone)
+            {
+                yield return null;
+            }
+        }
+        // Wait until the asynchronous scene fully loads
+        
     }
 
     public void BotonTomarFoto()

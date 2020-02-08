@@ -99,10 +99,10 @@ TextureImporter:
       name: Marco2_frames_0
       rect:
         serializedVersion: 2
-        x: 246
-        y: 712
-        width: 2654
-        height: 1906
+        x: 845
+        y: 506
+        width: 3567
+        height: 2232
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -110,7 +110,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2327320e700acfa4792a8d549d5802a8
+      spriteID: 3805949922e49de44aee21944647c15f
       vertices: []
       indices: 
       edges: []

@@ -17,20 +17,22 @@ public class MonoGmail : MonoBehaviour
     public TMP_InputField email;
     public Button inicio;
     public PantallasControl pc;
+    public bool listo;
+
     void Awake() {
         instance = this;
     }
 
 
     public void SendEmailR(){
-        string usertoken = "cndeveloperbot@gmail.com";
+        string usertoken = "personalizalove2020@gmail.com";
         MailMessage mail = new MailMessage();
 
 
-        mail.From = new MailAddress("cndeveloperbot@gmail.com");
+        mail.From = new MailAddress("personalizalove2020@gmail.com");
         mail.To.Add(email.text);
-        mail.Subject = "Resquest receive";
-        mail.Body = "Your request has been receive";
+        mail.Subject = "Personalizalove con estilo";
+        mail.Body = "";
 
 
         System.Net.Mail.Attachment attachment;
@@ -41,7 +43,7 @@ public class MonoGmail : MonoBehaviour
 
         SmtpClient smtpServer = new SmtpClient("smtp.gmail.com",587);
         // smtpServer.Port = 587;
-        smtpServer.Credentials = new System.Net.NetworkCredential("cndeveloperbot@gmail.com", "developerbot123") as ICredentialsByHost;
+        smtpServer.Credentials = new System.Net.NetworkCredential("personalizalove2020@gmail.com", "personaliza123") as ICredentialsByHost;
         //smtpServer.Credentials = CredentialCache.DefaultNetworkCredentials as ICredentialsByHost;
         smtpServer.EnableSsl = true;
         smtpServer.DeliveryMethod = SmtpDeliveryMethod.Network;
@@ -60,30 +62,30 @@ public class MonoGmail : MonoBehaviour
     }
  
     public void SendEmailC(){
-        string usertoken = "cndeveloperbot@gmail.com";
-        MailMessage mail = new MailMessage();
+        //string usertoken = "personalizalove2020@gmail.com";
+        //MailMessage mail = new MailMessage();
  
  
-        mail.From = new MailAddress("cndeveloperbot@gmail.com");
-        mail.To.Add(email.text);
-        mail.Subject = "Resquest receive";
-        mail.Body = "Your request has been receive";
+        //mail.From = new MailAddress("personalizalove2020@gmail.com");
+        //mail.To.Add(email.text);
+        //mail.Subject = "Personalizalove con estilo";
+        //mail.Body = "";
 
 
-        System.Net.Mail.Attachment attachment;
-        attachment = new System.Net.Mail.Attachment(nombrefoto.nombreDeFoto);
-        mail.Attachments.Add(attachment);
+        //System.Net.Mail.Attachment attachment;
+        //attachment = new System.Net.Mail.Attachment(nombrefoto.nombreDeFoto);
+        //mail.Attachments.Add(attachment);
 
         SmtpClient smtpServer = new SmtpClient("smtp.gmail.com",587);
         // smtpServer.Port = 587;
-        smtpServer.Credentials = new System.Net.NetworkCredential("cndeveloperbot@gmail.com", "developerbot123") as ICredentialsByHost;
+        smtpServer.Credentials = new System.Net.NetworkCredential("personalizalove2020@gmail.com", "personaliza123") as ICredentialsByHost;
         //smtpServer.Credentials = CredentialCache.DefaultNetworkCredentials as ICredentialsByHost;
         smtpServer.EnableSsl = true;
         smtpServer.DeliveryMethod = SmtpDeliveryMethod.Network;
         ServicePointManager.ServerCertificateValidationCallback =
             delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
         { return true; };
-        smtpServer.SendAsync (mail, usertoken);
+        //smtpServer.SendAsync (mail, usertoken);
         inicio.interactable = true;
         Debug.Log("Confirmation Sent");
     }
