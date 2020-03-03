@@ -101,7 +101,7 @@ public class MonoGmail : MonoBehaviour
             delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
         { return true; };
         //smtpServer.SendAsync (mail, usertoken);
-        inicio.interactable = true;
+        //inicio.interactable = true;
         Debug.Log("Confirmation Sent");
     }
 }

@@ -29,7 +29,7 @@ public class PantallasControl : MonoBehaviour {
         if (!Input.anyKey)
         {
             timer += Time.deltaTime;
-            if(timer >= 30f)
+            if(timer >= 120f)
             {
                 VolverInicio();
                 timer = 0;
@@ -61,6 +61,7 @@ public class PantallasControl : MonoBehaviour {
     {
         ssh.TakeHiResShotStickers();
         pantallas[3].GetComponent<DG.Tweening.DOTweenAnimation>().DOPlay();
+        //pantallas[6].GetComponent<DG.Tweening.DOTweenAnimation>().DOPlay();
     }
 
     public void MoverPantalla5()
@@ -102,6 +103,11 @@ public class PantallasControl : MonoBehaviour {
         volver.SetActive(false);
         ok.SetActive(false);
         tomarFoto.SetActive(true);
+    }
+
+    public void ResetearTimer()
+    {
+        timer = 0;
     }
 
 }

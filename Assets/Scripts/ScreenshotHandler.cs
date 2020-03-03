@@ -9,8 +9,8 @@ public class ScreenshotHandler : MonoBehaviour
     public Camera camera1;
     public Camera camera2;
     public RenderTexture rt;
-    public int resWidth = 1920;
-    public int resHeight = 1080;
+    public int resWidth = 1280;
+    public int resHeight = 720;
 
     public bool takeHiResShotFrame = false;
     public bool takeHiResShotSticker = false;
